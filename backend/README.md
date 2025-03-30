@@ -209,19 +209,57 @@ LIMIT 10;
 - Dados formatados no padrão brasileiro (ponto para milhar, vírgula para decimal)
 - Fonte: ANS - Dados Abertos (2023)
 
-## 💻 **Como Executar**
 
-### **Configuração Inicial**
+## 🚀 Instalação e Configuração
 
-1. Clone o repositório:
+### 1. Clonar o repositório
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd backend
+git clone https://github.com/samuelprimo/IntuitiveCare.git
+cd IntuitiveCare/backend
+
 python -m venv venv
 
-# Linux/Mac:
+# Ativar no Linux/Mac:
 source venv/bin/activate
 
-# Windows:
+# Ativar no Windows:
 .\venv\Scripts\activate
-pip install -r requirements.txt
+```
+## 🔧 Configurar Variáveis de Ambiente
+
+1. Na raiz do projeto (`/backend`), crie um arquivo chamado `.env`
+2. Adicione as seguintes configurações:
+
+```ini
+# Configurações Django
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1,meusite.com
+
+# Configurações CORS
+CORS_ALLOW_ALL_ORIGINS=True
+
+# Configurações do Banco de Dados
+DB_ENGINE=django.db.backends.mysql
+DB_NAME=sistema_ans
+DB_USER=samuc
+DB_PASSWORD=root
+DB_HOST=localhost
+DB_PORT=3306
+```
+## 🛠️ Execução do Projeto
+
+### 5. Aplicar Migrações do Banco de Dados
+```bash
+python manage.py migrate
+```
+- Cria todas as tabelas necessárias no banco de dados configurado
+
+- Aplica as migrações pendentes
+
+- Prepara a estrutura do banco para o funcionamento da aplicação
+- 
+```bash
+python manage.py runserver
+```
+- Servidor disponível em: http://localhost:8000
+
