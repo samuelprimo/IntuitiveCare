@@ -20,10 +20,27 @@ Este projeto tem como objetivo resolver um desafio técnico que envolve web scra
 - **Vue.js** (para a interface web de consumo da API)
 - **Postman** (para testar os endpoints da API)
 
-## Estrutura do Projeto
+## Agradecimentos
 
+Gostaria de expressar minha gratidão à **Intuitive Care** pela oportunidade de trabalhar neste desafio técnico. 
 
-## Instalação
+Este case foi extremamente enriquecedor, permitindo-me demonstrar e aprimorar minhas habilidades em:
+
+- **Web scraping** e coleta automatizada de dados
+- **Processamento e transformação** de informações estruturadas
+- **Modelagem e implementação** de banco de dados
+- **Desenvolvimento de APIs** com Django
+- **Integração completa** entre diferentes componentes de sistema
+
+Agradeço especialmente pelo desafio bem elaborado que:
+- Permitiu mostrar minha abordagem para soluções técnicas
+- Desafiou minha capacidade de integrar diferentes tecnologias
+
+Foi uma excelente experiência de aprendizado e estou aberto a feedbacks para continuar melhorando minhas habilidades.
+
+**Samuel Primo**  
+[Email](mailto:samucarcoverde@gmail.com) | 
+[LinkedIn](https://www.linkedin.com/in/samuel-arcoverde/)
 
 1. Clone o repositório:
    ```bash
