@@ -81,6 +81,8 @@ python manage.py extrair_tabela_pdf --pdf "C:/documentos/anexo1.pdf" --output "p
 | Interface | HeidiSQL |
 | Linguagem | Python/SQL |
 
+_____________________________________________________________________________________________________________________________________________________
+
 ### 📊 **Modelagem de Dados**
 ```python
 # models.py
