@@ -4,6 +4,10 @@
 1. **Integração com Backend**:
    - Conexão com API Django via `axios`
    - Variável de ambiente `VITE_API_URL` configurada na .env
+```ini
+# Arquivo: frontend/.env
+VITE_API_URL=http://localhost:8000
+```
 
 2. **Busca de Operadoras**:
    - Campo de busca com debounce (250ms)
@@ -17,26 +21,15 @@
 
 ## 💻 Componente Principal (`OperadorasView.vue`)
 
-## Project Setup
+## Setup
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Compile 
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
