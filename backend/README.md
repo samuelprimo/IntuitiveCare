@@ -216,14 +216,48 @@ ORDER BY
     total_despesas DESC
 LIMIT 10;
 ```
-Todas as queries usam LIKE para capturar variações no texto dos sinistros
+- Todas as queries usam LIKE para capturar variações no texto dos sinistros
 
-Conversão explícita de:
+- Conversão explícita de:
 
-Datas (STR_TO_DATE)
+- Datas (STR_TO_DATE)
 
-Valores monetários (substituição de , por .)
+- Valores monetários (substituição de , por .)
 
-Funções de agregação (SUM) com GROUP BY para consolidação
+- Funções de agregação (SUM) com GROUP BY para consolidação
 
-COALESCE para tratamento de nomes fantasia nulos
+- COALESCE para tratamento de nomes fantasia nulos
+
+## 📊 **Exemplos de Saída**
+
+### **Top Operadoras (Último Ano)**
+
+| Posição | Operadora       | Despesas (R$)    |
+|---------|-----------------|------------------|
+| 1       | UNIMED RJ       | 28.450.000,00    |
+| 2       | AMIL SAÚDE      | 25.300.000,00    |
+| 3       | SULAMÉRICA      | 18.750.000,00    |
+| 4       | HAPVIDA         | 15.200.000,00    |
+| 5       | NOTRE DAME      | 12.800.000,00    |
+
+**Legenda:**
+- Valores representam o somatório anual de despesas com "EVENTOS/SINISTROS CONHECIDOS OU AVISADOS"
+- Dados formatados no padrão brasileiro (ponto para milhar, vírgula para decimal)
+- Fonte: ANS - Dados Abertos (2023)
+
+## 💻 **Como Executar**
+
+### **Configuração Inicial**
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd backend
+python -m venv venv
+
+# Linux/Mac:
+source venv/bin/activate
+
+# Windows:
+.\venv\Scripts\activate
+pip install -r requirements.txt
