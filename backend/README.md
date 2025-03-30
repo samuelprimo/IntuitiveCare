@@ -17,10 +17,56 @@
 
 ## 🚀 **Funcionalidades**
 
-### **Teste 1 - Web Scraping**
+## 📂 **Teste 1 - Web Scraping de Documentos ANS**
+
+### 🎯 **Objetivo**
+Automatizar o download dos Anexos I e II (PDFs) do portal da ANS e compactá-los em um único arquivo ZIP.
+
+### ⚙️ **Tecnologias Utilizadas**
+- **Python 3.8+**
+- Bibliotecas:
+  - `requests` (requisições HTTP)
+  - `BeautifulSoup` (parseamento HTML)
+  - `zipfile` (compactação)
+  - `os` (manipulação de arquivos)
+
+### 📜 **Código Principal**
 ```python
-python manage.py download_pdfs --url "https://www.gov.br/ans/..." --output "Anexos.zip"
-```
+import requests
+from bs4 import BeautifulSoup
+import zipfile
+import os
+
+def baixar_pdfs(url_alvo, arquivo_saida):
+    # Configura headers para evitar bloqueio
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    
+    try:
+        # Faz requisição ao site
+        resposta = requests.get(url_alvo, headers=headers)
+        resposta.raise_for_status()
+        
+        # Parseia o HTML
+        soup = BeautifulSoup(resposta.text, 'html.parser')
+        
+        # Encontra todos os links de PDF
+        links_pdf = [
+            a['href'] for a in soup.find_all('a', href=True) 
+            if a['href'].lower().endswith('.pdf')
+        ]
+        
+        # Cria ZIP com os arquivos
+        with zipfile.ZipFile(arquivo_saida, 'w') as zipf:
+            for link in links_pdf:
+                nome_arquivo = link.split('/')[-1]
+                conteudo_pdf = requests.get(link).content
+                zipf.writestr(nome_arquivo, conteudo_pdf)
+                
+        return f"Arquivo {arquivo_saida} criado com sucesso!"
+        
+    except Exception as e:
+        return f"Erro: {str(e)}"
+````
 ## 🛠 **Teste 2 - Transformação de Dados**
 
 ### 📋 **Objetivo**
