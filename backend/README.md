@@ -125,7 +125,7 @@ class DemonstracaoContabil(models.Model):
     descricao = models.CharField(max_length=150)
     vl_saldo_final = models.DecimalField(max_digits=15, decimal_places=2)
 ```
-## 🗃 **Teste 3 - Banco de Dados: Queries SQL**
+## 🗃 Banco de Dados: Queries SQL**
 
 ### 📥 **1. Importação de Dados**
 
