@@ -21,13 +21,13 @@ VITE_API_URL=http://localhost:8000
 
 ## 💻 Componente Principal (`OperadorasView.vue`)
 
-## Setup
+- Setup
 
 ```sh
 npm install
 ```
 
-### Compile 
+- Compile 
 
 ```sh
 npm run dev
