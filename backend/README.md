@@ -56,24 +56,23 @@ Para extrair tabelas de arquivos PDF, utilize o seguinte comando:
 ```bash
 python manage.py extrair_tabela_pdf --pdf [CAMINHO_PDF] --output [NOME_SAIDA]
 ```
-## ⚙️ Parâmetros 
-
-| Argumento   | Descrição                          | Obrigatório  | Valor Padrão         |
-|-------------|-----------------------------------|-------------|---------------------|
-| `--pdf`     | Caminho completo do arquivo PDF   | Sim         | -                   |
-| `--output`  | Nome do arquivo CSV de saída      | Não         | `dados_extraidos.csv` |
-
-### Observações:
-- A extensão `.csv` será adicionada automaticamente se não for especificada
-
-
-## 💻 Exemplos de Uso
-
+Ex:
 ### Extraindo de um arquivo específico
 ```bash
 python manage.py extrair_tabela_pdf --pdf "C:/documentos/anexo1.pdf" --output "planilha_final"
 
 ```
+
+## ⚙️ Parâmetros 
+
+| Argumento   | Descrição                          | Obrigatório  | Valor Padrão         |
+|-------------|-----------------------------------|-------------|---------------------|
+| `--pdf`     | Caminho completo do arquivo PDF   | Sim         | -                   |
+| `--output`  | Nome do arquivo CSV de saída      | Não         | `planilha_final.csv` |
+
+### Observações:
+- A extensão `.csv` será adicionada automaticamente se não for especificada
+
 
 ### 🛠 **Tecnologias Utilizadas**
 | Componente | Tecnologia |
