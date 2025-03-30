@@ -56,8 +56,7 @@ Para extrair tabelas de arquivos PDF, utilize o seguinte comando:
 ```bash
 python manage.py extrair_tabela_pdf --pdf [CAMINHO_PDF] --output [NOME_SAIDA]
 ```
-Ex:
-### Extraindo de um arquivo específico
+### Ex:
 ```bash
 python manage.py extrair_tabela_pdf --pdf "C:/documentos/anexo1.pdf" --output "planilha_final"
 
