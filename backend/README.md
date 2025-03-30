@@ -7,27 +7,24 @@
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?logo=mysql)](https://mysql.com)
 
 
-## 📂 **Teste 1 - Web Scraping de Documentos ANS**
+## 📂 **Teste 1 - Web Scraping de Documentos AN**
 
-
-A ideia do projeto é automatizar o download dos Anexos I e II (PDFs) do portal da ANS e compactá-los em um único arquivo ZIP.
-
-### ⚙️ **Bibliotecas**
+### ⚙ **Bibliotecas**
   - `requests` (requisições HTTP)
   - `BeautifulSoup` (parseamento HTML)
   - `zipfile` (compactação)
   - `os` (manipulação de arquivos)
 
-## 🛠️ Como Executar o Web Scraper
+- A ideia do projeto é automatizar o download dos Anexos I e II (PDFs) do portal da ANS e compactá-los em um único arquivo ZIP.
 
-O projeto utiliza um sistema de gerenciamento via command line. Para executar o scraper:
+- O projeto utiliza um sistema de gerenciamento via command line. Para executar o scraper:
 
 ```bash
 python manage.py download_ans_pdfs --url "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos" --output "arquivos.zip"
 ````
 
 ### 📋 **Seu objetivo:**
-Extrair dados tabulares do PDF (Anexo I) baixado no Teste 1, transformá-los em CSV estruturado e compactar o resultado.
+- Extrair dados tabulares do PDF (Anexo I) baixado no Teste 1, transformá-los em CSV estruturado e compactar o resultado.
 
 ### 📥 **Entrada**
 - Arquivo PDF `Anexo_I.pdf` (baixado via Teste 1)
