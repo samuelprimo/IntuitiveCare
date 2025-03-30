@@ -20,42 +20,12 @@ Automatizar o download dos Anexos I e II (PDFs) do portal da ANS e compactá-los
   - `zipfile` (compactação)
   - `os` (manipulação de arquivos)
 
-### 📜 **Código Principal**
-```python
-import requests
-from bs4 import BeautifulSoup
-import zipfile
-import os
+## 🛠️ Como Executar o Web Scraper
 
-def baixar_pdfs(url_alvo, arquivo_saida):
-    # Configura headers para evitar bloqueio
-    headers = {'User-Agent': 'Mozilla/5.0'}
-    
-    try:
-        # Faz requisição ao site
-        resposta = requests.get(url_alvo, headers=headers)
-        resposta.raise_for_status()
-        
-        # Parseia o HTML
-        soup = BeautifulSoup(resposta.text, 'html.parser')
-        
-        # Encontra todos os links de PDF
-        links_pdf = [
-            a['href'] for a in soup.find_all('a', href=True) 
-            if a['href'].lower().endswith('.pdf')
-        ]
-        
-        # Cria ZIP com os arquivos
-        with zipfile.ZipFile(arquivo_saida, 'w') as zipf:
-            for link in links_pdf:
-                nome_arquivo = link.split('/')[-1]
-                conteudo_pdf = requests.get(link).content
-                zipf.writestr(nome_arquivo, conteudo_pdf)
-                
-        return f"Arquivo {arquivo_saida} criado com sucesso!"
-        
-    except Exception as e:
-        return f"Erro: {str(e)}"
+O projeto utiliza um sistema de gerenciamento via command line. Para executar o scraper:
+
+```bash
+python manage.py download_ans_pdfs --url "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos" --output "arquivos.zip"
 ````
 ## 🛠 **Teste 2 - Transformação de Dados**
 
@@ -69,28 +39,33 @@ Extrair dados tabulares do PDF (Anexo I) baixado no Teste 1, transformá-los em 
 - Arquivo CSV com dados estruturados
 - Arquivo ZIP contendo o CSV (`Teste_[Nome].zip`)
 
-### 🧠 **Lógica Implementada**
-```python
-def extract_tables_from_pdf(file_path):
-    data = []
-    with pdfplumber.open(file_path) as pdf:
-        for page in pdf.pages:
-            tables = page.extract_table()
-            if tables:
-                for row in tables:
-                    clean_row = [cell for cell in row if cell and not cell.isdigit()]
-                    data.append(clean_row)
-    
-    df = pd.DataFrame(data)
-    df.rename(columns={"OD": "Seg. Odontológica", "AMB": "Seg. Ambulatorial"}, inplace=True)
-    return df
-```
+## Parâmetros:
+
+| Argumento    | Descrição                          | Obrigatório | Valor Padrão       |
+|--------------|------------------------------------|-------------|--------------------|
+| `--url`      | URL do site contendo os PDFs       | Sim         | -                  |
+| `--output`   | Nome do arquivo ZIP de saída       | Não         | `pdfs_coletados.zip` |
+
+## 📊 Extração de Tabelas de PDF
+
+Para extrair tabelas de arquivos PDF, utilize o seguinte comando:
+
+```bash
+python manage.py extrair_tabela_pdf --pdf [CAMINHO_PDF] --output [NOME_SAIDA]
 ## 🗃 **Teste 3 - Banco de Dados e Análise de Dados**
 
 ### 🎯 **Objetivos**
 1. Estruturar e popular banco de dados com informações das operadoras
 2. Realizar análises sobre despesas médicas
 3. Identificar as 10 operadoras com maiores gastos em sinistros hospitalares
+
+## 💻 Exemplos de Uso
+
+### Extraindo de um arquivo específico
+```bash
+python manage.py extrair_tabela_pdf --pdf "C:/documentos/anexo1.pdf" --output "planilha_final"
+
+```
 
 ### 🛠 **Tecnologias Utilizadas**
 | Componente | Tecnologia |
