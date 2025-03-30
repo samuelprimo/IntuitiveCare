@@ -6,16 +6,6 @@
 [![Django](https://img.shields.io/badge/Django-4.2-brightgreen?logo=django)](https://djangoproject.com)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?logo=mysql)](https://mysql.com)
 
-## 📌 **Sumário**
-1. [Funcionalidades](#-funcionalidades)
-2. [Tecnologias](#-tecnologias)
-3. [Estrutura do Projeto](#-estrutura-do-projeto)
-4. [Modelagem do Banco](#-modelagem-do-banco)
-5. [Como Executar](#-como-executar)
-6. [Queries SQL](#%EF%B8%8F-queries-sql-chave)
-7. [Exemplos de Saída](#-exemplos-de-saída)
-
-## 🚀 **Funcionalidades**
 
 ## 📂 **Teste 1 - Web Scraping de Documentos ANS**
 
