@@ -94,3 +94,33 @@ def extract_tables_from_pdf(file_path):
     df = pd.DataFrame(data)
     df.rename(columns={"OD": "Seg. Odontológica", "AMB": "Seg. Ambulatorial"}, inplace=True)
     return df
+```
+## 🗃 **Teste 3 - Banco de Dados e Análise de Dados**
+
+### 🎯 **Objetivos**
+1. Estruturar e popular banco de dados com informações das operadoras
+2. Realizar análises sobre despesas médicas
+3. Identificar as 10 operadoras com maiores gastos em sinistros hospitalares
+
+### 🛠 **Tecnologias Utilizadas**
+| Componente | Tecnologia |
+|------------|------------|
+| Banco de Dados | MySQL 8.0 |
+| ORM | Django Models |
+| Interface | HeidiSQL |
+| Linguagem | Python/SQL |
+
+### 📊 **Modelagem de Dados**
+```python
+# models.py
+class Operadora(models.Model):
+    registro_ans = models.BigIntegerField(primary_key=True)
+    cnpj = models.CharField(max_length=18)
+    razao_social = models.TextField()
+    # ... outros campos cadastrais
+
+class DemonstracaoContabil(models.Model):
+    data = models.DateField()
+    registro_ans = models.BigIntegerField(db_index=True)
+    descricao = models.CharField(max_length=150)
+    vl_saldo_final = models.DecimalField(max_digits=15, decimal_places=2)
