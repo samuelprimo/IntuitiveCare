@@ -124,3 +124,51 @@ class DemonstracaoContabil(models.Model):
     registro_ans = models.BigIntegerField(db_index=True)
     descricao = models.CharField(max_length=150)
     vl_saldo_final = models.DecimalField(max_digits=15, decimal_places=2)
+```
+## 🗃 **Teste 3 - Banco de Dados: Queries SQL**
+
+### 📥 **1. Importação de Dados**
+
+#### **Operadoras Ativas**
+```sql
+LOAD DATA LOCAL INFILE 'operadoras.csv'
+INTO TABLE api_operadora
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(
+    registro_ans, cnpj, razao_social, nome_fantasia, modalidade, 
+    logradouro, numero, complemento, bairro, cidade, 
+    estado, cep, ddd, telefone, fax,
+    endereco_eletronico, representante, cargo_representante, 
+    regiao_de_comercializacao, data_registro_ans
+)
+SET
+    numero = NULLIF(@numero, ''),
+    nome_fantasia = NULLIF(@nome_fantasia, ''),
+    fax = NULLIF(@fax, '');
+
+```
+***Demonstrações Contábeis***
+
+```
+LOAD DATA LOCAL INFILE 'demonstracoes_contabeis.csv'
+INTO TABLE api_demonstracaocontabil
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(
+    @data,
+    registro_ans,
+    cd_conta_contabil,
+    descricao,
+    @vl_saldo_inicial,
+    @vl_saldo_final
+)
+SET
+    data = STR_TO_DATE(@data, '%d/%m/%Y'),
+    vl_saldo_inicial = REPLACE(@vl_saldo_inicial, ',', '.'),
+    vl_saldo_final = REPLACE(@vl_saldo_final, ',', '.');
+```
