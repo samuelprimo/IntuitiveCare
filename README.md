@@ -42,7 +42,7 @@ Foi uma excelente experiência de aprendizado e estou aberto a feedbacks para co
 [Email](mailto:samucarcoverde@gmail.com) | 
 [LinkedIn](https://www.linkedin.com/in/samuel-arcoverde/)
 
-1. Clone o repositório:
+- Clone o repositório:
    ```bash
    git clone https://github.com/samuelprimo/IntuitiveCare.git
    cd IntuitiveCare
