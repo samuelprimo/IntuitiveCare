@@ -148,27 +148,82 @@ SET
     numero = NULLIF(@numero, ''),
     nome_fantasia = NULLIF(@nome_fantasia, ''),
     fax = NULLIF(@fax, '');
+    regiao_de_comercializacao = NULLIF(TRIM(@regiao_de_comercializacao), '') + 0;
 
 ```
 ***Demonstrações Contábeis***
 
 ```
-LOAD DATA LOCAL INFILE 'demonstracoes_contabeis.csv'
+LOAD DATA LOCAL INFILE 'C:/Users/samuc/Downloads/1T2024/1T2024.csv'
 INTO TABLE api_demonstracaocontabil
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (
-    @data,
-    registro_ans,
-    cd_conta_contabil,
-    descricao,
-    @vl_saldo_inicial,
-    @vl_saldo_final
+    @data, registro_ans, cd_conta_contabil, descricao, @vl_saldo_inicial, @vl_saldo_final
 )
 SET
-    data = STR_TO_DATE(@data, '%d/%m/%Y'),
+    data = CASE 
+        WHEN @data LIKE '__-__-____' THEN STR_TO_DATE(@data, '%y-%m-%d')
+        WHEN @data LIKE '__/__/____' THEN STR_TO_DATE(@data, '%d/%m/%Y')
+        WHEN @data LIKE '____-__-__' THEN STR_TO_DATE(@data, '%Y-%m-%d')
+    END,
     vl_saldo_inicial = REPLACE(@vl_saldo_inicial, ',', '.'),
     vl_saldo_final = REPLACE(@vl_saldo_final, ',', '.');
+
+    
+
 ```
+
+## 🔍 2. Consultas Analíticas
+
+### **Top 10 Operadoras - Último Trimestre**
+
+```sql
+SELECT 
+    op.registro_ans, 
+    COALESCE(op.nome_fantasia, op.razao_social) AS nome_operadora, 
+    SUM(dc.vl_saldo_final) AS total_despesas
+FROM 
+    api_demonstracaocontabil dc
+JOIN 
+    api_operadora op ON dc.registro_ans = op.registro_ans
+WHERE 
+    dc.descricao LIKE '%SINISTROS%'
+GROUP BY 
+    op.registro_ans, nome_operadora
+ORDER BY 
+    total_despesas DESC
+LIMIT 10;
+```
+***Top 10 Operadoras - Último Ano***
+```sql
+SELECT 
+    op.registro_ans, 
+    COALESCE(op.nome_fantasia, op.razao_social) AS nome_operadora, 
+    SUM(dc.vl_saldo_final) AS total_despesas
+FROM 
+    api_demonstracaocontabil dc
+JOIN 
+    api_operadora op ON dc.registro_ans = op.registro_ans
+WHERE 
+    dc.descricao LIKE '%SINISTROS%'
+    AND dc.data >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)
+GROUP BY 
+    op.registro_ans, op.nome_fantasia
+ORDER BY 
+    total_despesas DESC
+LIMIT 10;
+```
+Todas as queries usam LIKE para capturar variações no texto dos sinistros
+
+Conversão explícita de:
+
+Datas (STR_TO_DATE)
+
+Valores monetários (substituição de , por .)
+
+Funções de agregação (SUM) com GROUP BY para consolidação
+
+COALESCE para tratamento de nomes fantasia nulos
