@@ -27,7 +27,6 @@ O projeto utiliza um sistema de gerenciamento via command line. Para executar o 
 ```bash
 python manage.py download_ans_pdfs --url "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos" --output "arquivos.zip"
 ````
-## 🛠 **Teste 2 - Transformação de Dados**
 
 ### 📋 **Objetivo**
 Extrair dados tabulares do PDF (Anexo I) baixado no Teste 1, transformá-los em CSV estruturado e compactar o resultado.
