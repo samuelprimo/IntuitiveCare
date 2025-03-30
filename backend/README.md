@@ -28,7 +28,7 @@ O projeto utiliza um sistema de gerenciamento via command line. Para executar o 
 python manage.py download_ans_pdfs --url "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos" --output "arquivos.zip"
 ````
 
-### 📋 **Objetivo**
+### 📋 **Seu objetivo:**
 Extrair dados tabulares do PDF (Anexo I) baixado no Teste 1, transformá-los em CSV estruturado e compactar o resultado.
 
 ### 📥 **Entrada**
@@ -36,7 +36,7 @@ Extrair dados tabulares do PDF (Anexo I) baixado no Teste 1, transformá-los em 
 
 ### 📤 **Saída**
 - Arquivo CSV com dados estruturados
-- Arquivo ZIP contendo o CSV (`Teste_[Nome].zip`)
+- Arquivo ZIP contendo o CSV (`Teste_[Nome].zip`) no caso, "arquivos.zip"
 
 ## ⚙️ Parâmetros
 
@@ -47,7 +47,7 @@ Extrair dados tabulares do PDF (Anexo I) baixado no Teste 1, transformá-los em 
 
 ## 📊 Teste 2: Extração de Tabelas de PDF
 
-### 📋 **Objetivos**
+### 📋 **Objetivos:**
 1. Estruturar e popular banco de dados com informações das operadoras
 2. Realizar análises sobre despesas médicas
 
