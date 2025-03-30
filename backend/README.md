@@ -39,7 +39,7 @@ Extrair dados tabulares do PDF (Anexo I) baixado no Teste 1, transformá-los em 
 - Arquivo CSV com dados estruturados
 - Arquivo ZIP contendo o CSV (`Teste_[Nome].zip`)
 
-## Parâmetros:
+## ⚙️ Parâmetros
 
 | Argumento    | Descrição                          | Obrigatório | Valor Padrão       |
 |--------------|------------------------------------|-------------|--------------------|
@@ -53,6 +53,16 @@ Para extrair tabelas de arquivos PDF, utilize o seguinte comando:
 ```bash
 python manage.py extrair_tabela_pdf --pdf [CAMINHO_PDF] --output [NOME_SAIDA]
 ```
+## ⚙️ Parâmetros 
+
+| Argumento   | Descrição                          | Obrigatório  | Valor Padrão         |
+|-------------|-----------------------------------|-------------|---------------------|
+| `--pdf`     | Caminho completo do arquivo PDF   | Sim         | -                   |
+| `--output`  | Nome do arquivo CSV de saída      | Não         | `dados_extraidos.csv` |
+
+### Observações:
+- A extensão `.csv` será adicionada automaticamente se não for especificada
+
 ### 🎯 **Objetivos**
 1. Estruturar e popular banco de dados com informações das operadoras
 2. Realizar análises sobre despesas médicas
@@ -225,6 +235,14 @@ source venv/bin/activate
 # Ativar no Windows:
 .\venv\Scripts\activate
 ```
+## 📦 Instalação de Dependências
+
+Execute o seguinte comando para instalar todas as dependências do projeto:
+
+```bash
+pip install -r requirements.txt
+```
+
 ## 🔧 Configurar Variáveis de Ambiente
 
 1. Na raiz do projeto (`/backend`), crie um arquivo chamado `.env`
@@ -233,7 +251,7 @@ source venv/bin/activate
 ```ini
 # Configurações Django
 DEBUG=True
-ALLOWED_HOSTS=localhost,127.0.0.1,meusite.com
+ALLOWED_HOSTS=localhost,127.0.0.1 (...)
 
 # Configurações CORS
 CORS_ALLOW_ALL_ORIGINS=True
@@ -257,7 +275,6 @@ python manage.py migrate
 - Aplica as migrações pendentes
 
 - Prepara a estrutura do banco para o funcionamento da aplicação
-- 
 ```bash
 python manage.py runserver
 ```
