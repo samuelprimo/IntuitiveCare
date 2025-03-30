@@ -12,9 +12,7 @@
 
 A ideia do projeto é automatizar o download dos Anexos I e II (PDFs) do portal da ANS e compactá-los em um único arquivo ZIP.
 
-### ⚙️ **Tecnologias Utilizadas**
-- **Python 3.8+**
-- Bibliotecas:
+### ⚙️ **Bibliotecas**
   - `requests` (requisições HTTP)
   - `BeautifulSoup` (parseamento HTML)
   - `zipfile` (compactação)
