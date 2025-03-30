@@ -43,9 +43,9 @@ Extrair dados tabulares do PDF (Anexo I) baixado no Teste 1, transformá-los em 
 | Argumento    | Descrição                          | Obrigatório | Valor Padrão       |
 |--------------|------------------------------------|-------------|--------------------|
 | `--url`      | URL do site contendo os PDFs       | Sim         | -                  |
-| `--output`   | Nome do arquivo ZIP de saída       | Não         | `pdfs_coletados.zip` |
+| `--output`   | Nome do arquivo ZIP de saída       | Não         | `arquivos.zip` |
 
-## 📊 Extração de Tabelas de PDF
+## 📊 Teste 2: Extração de Tabelas de PDF
 
 Para extrair tabelas de arquivos PDF, utilize o seguinte comando:
 
