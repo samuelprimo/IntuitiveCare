@@ -10,7 +10,7 @@
 ## 📂 **Teste 1 - Web Scraping de Documentos ANS**
 
 
-A ideia do projeto é utomatizar o download dos Anexos I e II (PDFs) do portal da ANS e compactá-los em um único arquivo ZIP.
+A ideia do projeto é automatizar o download dos Anexos I e II (PDFs) do portal da ANS e compactá-los em um único arquivo ZIP.
 
 ### ⚙️ **Tecnologias Utilizadas**
 - **Python 3.8+**
