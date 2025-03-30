@@ -3,7 +3,7 @@
 ### 🛠️ Tarefas Implementadas
 1. **Integração com Backend**:
    - Conexão com API Django via `axios`
-   - Variável de ambiente `VITE_API_URL` configurada
+   - Variável de ambiente `VITE_API_URL` configurada na .env
 
 2. **Busca de Operadoras**:
    - Campo de busca com debounce (250ms)
