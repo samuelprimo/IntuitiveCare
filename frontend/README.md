@@ -1,14 +1,21 @@
-# ans-frontend
+## 🔍 Teste de API - Funcionalidades
 
-This template should help get you started developing with Vue 3 in Vite.
+### 🛠️ Tarefas Implementadas
+1. **Integração com Backend**:
+   - Conexão com API Django via `axios`
+   - Variável de ambiente `VITE_API_URL` configurada
 
-## Recommended IDE Setup
+2. **Busca de Operadoras**:
+   - Campo de busca com debounce (250ms)
+   - Filtro por razão social (case insensitive)
+   - Paginação (20 resultados por requisição)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+3. **Visualização de Resultados**:
+   - Cards responsivos com informações essenciais
+   - Formatação automática de CNPJ
+   - Feedback visual durante carregamento
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 💻 Componente Principal (`OperadorasView.vue`)
 
 ## Project Setup
 
