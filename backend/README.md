@@ -52,7 +52,6 @@ Para extrair tabelas de arquivos PDF, utilize o seguinte comando:
 
 ```bash
 python manage.py extrair_tabela_pdf --pdf [CAMINHO_PDF] --output [NOME_SAIDA]
-## 🗃 **Teste 3 - Banco de Dados e Análise de Dados**
 ```
 ### 🎯 **Objetivos**
 1. Estruturar e popular banco de dados com informações das operadoras
