@@ -1,4 +1,4 @@
-# 🏥 **Sistema de Processamento de Dados ANS** 
+#  **Sistema de Processamento de Dados ANS** 
 
 *Solução completa para coleta, transformação e análise de dados da Agência Nacional de Saúde Suplementar*
 
@@ -7,7 +7,7 @@
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?logo=mysql)](https://mysql.com)
 
 
-## 📂 **Teste 1 - Web Scraping de Documentos AN**
+## 📂 **Teste 1 - Web Scraping de Documentos**
 
 - A ideia do projeto é automatizar o download dos Anexos I e II (PDFs) do portal da ANS e compactá-los em um único arquivo ZIP.
 
