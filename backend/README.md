@@ -42,9 +42,6 @@ python manage.py download_ans_pdfs --url "https://www.gov.br/ans/pt-br/acesso-a-
 
 ## 📊 Teste 2: Extração de Tabelas de PDF
 
-### 📋 **Objetivos:**
-1. Estruturar e popular banco de dados com informações das operadoras
-2. Realizar análises sobre despesas médicas
 
 Para extrair tabelas de arquivos PDF, utilize o seguinte comando:
 
