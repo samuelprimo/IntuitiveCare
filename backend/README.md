@@ -65,7 +65,6 @@ python manage.py extrair_tabela_pdf --pdf [CAMINHO_PDF] --output [NOME_SAIDA]
 ### 🎯 **Objetivos**
 1. Estruturar e popular banco de dados com informações das operadoras
 2. Realizar análises sobre despesas médicas
-3. Identificar as 10 operadoras com maiores gastos em sinistros hospitalares
 
 ## 💻 Exemplos de Uso
 
